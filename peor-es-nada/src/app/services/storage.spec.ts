@@ -1,34 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Preferences } from '@capacitor/preferences';
+import { TestBed } from '@angular/core/testing';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class StorageService {
+import { Storage } from './storage.service';
 
-  constructor() { }
+describe('Storage', () => {
+  let service: Storage;
 
-  async guardar(key: string, value: any): Promise<void> {
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(Storage);
+  });
 
-    await Preferences.set({
-      key,
-      value: JSON.stringify(value)
-    });
-
-  }
-
-  async obtener(key: string): Promise<any> {
-
-    const { value } = await Preferences.get({ key });
-
-    return value ? JSON.parse(value) : null;
-
-  }
-
-  async eliminar(key: string): Promise<void> {
-
-    await Preferences.remove({ key });
-
-  }
-
-}
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

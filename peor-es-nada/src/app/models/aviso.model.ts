@@ -6,7 +6,7 @@ export interface Aviso {
 
   descripcion: string;
 
-  fecha: string;
+  fecha: Date;
 
   imagen: string;
 

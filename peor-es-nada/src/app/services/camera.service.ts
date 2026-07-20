@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+
+import {
+
+Camera,
+
+CameraResultType,
+
+CameraSource
+
+} from '@capacitor/camera';
+
+@Injectable({
+  providedIn:'root'
+})
+
+export class CameraService{
+
+  async tomarFoto():Promise<string>{
+
+    const foto=await Camera.getPhoto({
+
+      quality:90,
+
+      allowEditing:false,
+
+      resultType:CameraResultType.DataUrl,
+
+      source:CameraSource.Camera
+
+    });
+
+    return foto.dataUrl ?? '';
+
+  }
+
+}
