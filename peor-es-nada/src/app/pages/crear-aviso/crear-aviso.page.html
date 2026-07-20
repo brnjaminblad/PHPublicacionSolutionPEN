@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="page-toolbar">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" class="back-button" (click)="volver()" aria-label="Volver a la pantalla principal">
+        <img src="assets/icons/return-up-back.svg" alt="Volver" class="back-icon" />
+      </ion-button>
+    </ion-buttons>
     <ion-title class="page-title">Crear aviso</ion-title>
   </ion-toolbar>
 </ion-header>

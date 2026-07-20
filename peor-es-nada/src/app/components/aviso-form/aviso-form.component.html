@@ -11,14 +11,15 @@
   <ion-note color="danger" *ngIf="descripcionControl?.touched && descripcionControl?.hasError('required')">La descripción es obligatoria.</ion-note>
   <ion-note color="danger" *ngIf="descripcionControl?.touched && descripcionControl?.hasError('minlength')">La descripción debe tener al menos 20 caracteres.</ion-note>
 
-  <ion-button expand="block" color="medium" type="button" (click)="tomarFoto()">
-    <ion-icon name="camera-outline" slot="start"></ion-icon>
+  <ion-button expand="block" class="photo-button" type="button" (click)="tomarFoto()">
+    <img src="assets/icons/camera-add.svg" alt="Tomar fotografía" class="form-icon" slot="start" />
     Tomar fotografía
   </ion-button>
 
-  <img *ngIf="fotoPreview" [src]="fotoPreview" alt="Foto capturada" />
+  <img *ngIf="fotoPreview" [src]="fotoPreview" alt="Foto capturada" class="preview-image" />
 
-  <ion-button expand="block" type="submit" class="ion-margin-top">
+  <ion-button expand="block" type="submit" class="ion-margin-top save-button">
+    <img src="assets/icons/save-floppy.svg" alt="Guardar aviso" class="form-icon" slot="start" />
     {{ avisoEditar ? 'Guardar cambios' : 'Guardar aviso' }}
   </ion-button>
 </form>

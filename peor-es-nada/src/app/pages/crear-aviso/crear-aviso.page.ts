@@ -33,6 +33,11 @@ export class CrearAvisoPage implements OnInit {
     } else {
       await this.avisoService.agregar(aviso);
     }
+    await this.avisoService.cargar();
+    this.router.navigate(['/home']);
+  }
+
+  volver(): void {
     this.router.navigate(['/home']);
   }
 }
