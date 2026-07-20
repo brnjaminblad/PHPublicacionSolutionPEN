@@ -14,13 +14,13 @@ export class AvisoService {
   constructor(private storage:StorageService){}
 
   async cargar(){
-
+    // Carga los avisos guardados en almacenamiento local.
     this.avisos=await this.storage.obtener<Aviso[]>(this.STORAGE) ?? [];
 
   }
 
   async listar(){
-
+    // Si todavía no hay datos en memoria, los carga primero.
     if(this.avisos.length===0){
 
       await this.cargar();
@@ -32,7 +32,7 @@ export class AvisoService {
   }
 
   async agregar(aviso:Aviso){
-
+    // Añade un aviso nuevo y lo guarda en almacenamiento.
     aviso.id=Date.now();
 
     this.avisos.push(aviso);
@@ -42,7 +42,7 @@ export class AvisoService {
   }
 
   async eliminar(id:number){
-
+    // Elimina un aviso por su identificador.
     this.avisos=this.avisos.filter(a=>a.id!==id);
 
     await this.storage.guardar(this.STORAGE,this.avisos);
@@ -50,7 +50,7 @@ export class AvisoService {
   }
 
   async actualizar(aviso:Aviso){
-
+    // Reemplaza el aviso existente con los datos editados.
     const indice=this.avisos.findIndex(a=>a.id===aviso.id);
 
     if(indice>=0){

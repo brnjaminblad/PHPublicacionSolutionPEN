@@ -27,11 +27,13 @@ export class HomePage implements OnInit {
   }
 
   async cargarAvisos(): Promise<void> {
+    // Trae los avisos y los ordena según el criterio actual.
     const avisos = await this.avisoService.listar();
     this.avisos = [...avisos].sort((a, b) => this.compararFechas(a, b));
   }
 
   private compararFechas(a: Aviso, b: Aviso): number {
+    // Compara las fechas para ordenar de forma ascendente o descendente.
     const fechaA = new Date(a.fecha as string).getTime();
     const fechaB = new Date(b.fecha as string).getTime();
 
@@ -39,6 +41,7 @@ export class HomePage implements OnInit {
   }
 
   cambiarOrden(): void {
+    // Cambia entre orden ascendente y descendente.
     this.orden = this.orden === 'asc' ? 'desc' : 'asc';
     this.avisos = [...this.avisos].sort((a, b) => this.compararFechas(a, b));
   }

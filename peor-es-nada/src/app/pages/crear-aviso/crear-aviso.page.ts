@@ -28,6 +28,7 @@ export class CrearAvisoPage implements OnInit {
   }
 
   async guardar(aviso: Aviso): Promise<void> {
+    // Guarda el aviso nuevo o actualiza el existente y vuelve a la pantalla principal.
     if (this.avisoEditar) {
       await this.avisoService.actualizar({ ...aviso, id: this.avisoEditar.id });
     } else {
@@ -38,6 +39,7 @@ export class CrearAvisoPage implements OnInit {
   }
 
   volver(): void {
+    // Regresa a la pantalla inicial sin guardar cambios.
     this.router.navigate(['/home']);
   }
 }
