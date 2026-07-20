@@ -1,0 +1,87 @@
+.aviso-card {
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(139, 91, 0, 0.14);
+  overflow: hidden;
+  background: linear-gradient(135deg, #fffaf0 0%, #ffefc8 100%);
+  margin: 0.8rem 0;
+  position: relative;
+  border: 1px solid #e9c783;
+}
+
+.card-ribbon {
+  position: absolute;
+  top: 12px;
+  right: -10px;
+  background: linear-gradient(135deg, #f29f05, #ffbf47);
+  color: #4f2b00;
+  padding: 0.28rem 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.aviso-image {
+  width: 100%;
+  max-height: 185px;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+
+.timestamp {
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: #936b18;
+  font-weight: 600;
+}
+
+.description {
+  white-space: pre-wrap;
+  line-height: 1.45;
+  color: #604a20;
+  margin: 0;
+}
+
+.actions-row {
+  --background: transparent;
+  padding-top: 0.15rem;
+}
+
+.action-button {
+  --padding-start: 0.7rem;
+  --padding-end: 0.7rem;
+  --padding-top: 0.45rem;
+  --padding-bottom: 0.45rem;
+  margin-left: 0.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.action-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.action-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.action-label {
+  font-size: 0.9rem;
+}
+
+.edit-btn {
+  background: rgba(33, 150, 243, 0.12);
+  color: #1662b9;
+}
+
+.delete-btn {
+  background: rgba(239, 83, 80, 0.12);
+  color: #c62828;
+}

@@ -1,0 +1,15 @@
+.page-toolbar {
+  --background: linear-gradient(90deg, #ffefc8 0%, #ffe1a6 100%);
+  --color: #6d4200;
+  border-bottom: 1px solid rgba(109, 66, 0, 0.16);
+}
+
+.page-title {
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  font-size: 1.02rem;
+}
+
+.page-content {
+  --background: linear-gradient(180deg, #fff9eb 0%, #fff4dd 100%);
+}

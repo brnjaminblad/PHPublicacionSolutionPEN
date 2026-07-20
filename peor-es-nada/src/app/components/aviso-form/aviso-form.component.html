@@ -1,3 +1,24 @@
-<p>
-  aviso-form works!
-</p>
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+  <ion-item>
+    <ion-input label="Título" labelPlacement="floating" formControlName="titulo"></ion-input>
+  </ion-item>
+  <ion-note color="danger" *ngIf="tituloControl?.touched && tituloControl?.hasError('required')">El título es obligatorio.</ion-note>
+  <ion-note color="danger" *ngIf="tituloControl?.touched && tituloControl?.hasError('minlength')">El título debe tener al menos 5 caracteres.</ion-note>
+
+  <ion-item>
+    <ion-textarea label="Descripción" labelPlacement="floating" autoGrow="true" formControlName="descripcion"></ion-textarea>
+  </ion-item>
+  <ion-note color="danger" *ngIf="descripcionControl?.touched && descripcionControl?.hasError('required')">La descripción es obligatoria.</ion-note>
+  <ion-note color="danger" *ngIf="descripcionControl?.touched && descripcionControl?.hasError('minlength')">La descripción debe tener al menos 20 caracteres.</ion-note>
+
+  <ion-button expand="block" color="medium" type="button" (click)="tomarFoto()">
+    <ion-icon name="camera-outline" slot="start"></ion-icon>
+    Tomar fotografía
+  </ion-button>
+
+  <img *ngIf="fotoPreview" [src]="fotoPreview" alt="Foto capturada" />
+
+  <ion-button expand="block" type="submit" class="ion-margin-top">
+    {{ avisoEditar ? 'Guardar cambios' : 'Guardar aviso' }}
+  </ion-button>
+</form>

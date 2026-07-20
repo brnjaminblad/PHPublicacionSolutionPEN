@@ -1,20 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AvisoService } from '../../services/aviso.service';
+import { AvisoFormComponent } from '../../components/aviso-form/aviso-form.component';
+import { Aviso } from '../../models/aviso.model';
 
 @Component({
   selector: 'app-crear-aviso',
   templateUrl: './crear-aviso.page.html',
   styleUrls: ['./crear-aviso.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, IonicModule, AvisoFormComponent],
 })
 export class CrearAvisoPage implements OnInit {
+  avisoEditar: Aviso | null = null;
 
-  constructor() { }
+  constructor(private avisoService: AvisoService, private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+      const avisos = await this.avisoService.listar();
+      this.avisoEditar = avisos.find((aviso) => aviso.id === id) ?? null;
+    }
   }
 
+  async guardar(aviso: Aviso): Promise<void> {
+    if (this.avisoEditar) {
+      await this.avisoService.actualizar({ ...aviso, id: this.avisoEditar.id });
+    } else {
+      await this.avisoService.agregar(aviso);
+    }
+    this.router.navigate(['/home']);
+  }
 }

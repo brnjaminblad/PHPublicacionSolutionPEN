@@ -1,3 +1,15 @@
-<p>
-  aviso-list works!
-</p>
+<ion-list *ngIf="avisos?.length; else vacio">
+  <ion-item *ngFor="let aviso of avisos" lines="none">
+    <app-aviso-card
+      [aviso]="aviso"
+      (borrar)="confirmarEliminacion($event)"
+      (editar)="iniciarEdicion($event)"
+    ></app-aviso-card>
+  </ion-item>
+</ion-list>
+
+<ng-template #vacio>
+  <ion-card>
+    <ion-card-content>Aún no tienes avisos publicados.</ion-card-content>
+  </ion-card>
+</ng-template>

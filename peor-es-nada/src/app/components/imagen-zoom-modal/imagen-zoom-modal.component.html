@@ -1,0 +1,13 @@
+<ion-content class="zoom-content">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="cerrar()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="zoom-wrapper">
+    <img *ngIf="imagenUrl" [src]="imagenUrl" alt="Vista ampliada" class="zoom-image" />
+  </div>
+</ion-content>

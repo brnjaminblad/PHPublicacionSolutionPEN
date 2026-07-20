@@ -18,4 +18,11 @@ export const routes: Routes = [
         (m) => m.CrearAvisoPage
       ),
   },
+  {
+    path: 'editar-aviso/:id',
+    loadComponent: () =>
+      import('./pages/crear-aviso/crear-aviso.page').then(
+        (m) => m.CrearAvisoPage
+      ),
+  },
 ];

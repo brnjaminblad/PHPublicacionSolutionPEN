@@ -1,13 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>crear-aviso</ion-title>
+  <ion-toolbar class="page-toolbar">
+    <ion-title class="page-title">Crear aviso</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crear-aviso</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding page-content">
+  <app-aviso-form [avisoEditar]="avisoEditar" (guardarAviso)="guardar($event)"></app-aviso-form>
 </ion-content>
